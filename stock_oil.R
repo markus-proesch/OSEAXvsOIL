@@ -1,7 +1,3 @@
-
-setwd('/Users/Markus/Documents')
-
-
 library(ggplot2)
 library(magrittr)
 library(gganimate)
@@ -38,12 +34,3 @@ oilPlot <- ggplot(data = stock_oil_mlt, aes(x = Date, y = value, color = variabl
 animate(oilPlot, renderer = gifski_renderer(), width = 550, 
         height = 550, nframes = 250, duration = 20)
 anim_save("OIL_OSEAX.gif")
-
-#############################################################################################
-oilPlot <- ggplot(data = stock_oil_mlt, aes(x = Date)) +
-  geom_line(aes(x = Date, y = Brent), color="#000099")+
-  geom_line(aes(x = Date, y = Crude), color="#CC0000")+
-  labs(title = 'Date {frame_along} ', subtitle = ) +
-  theme(plot.title = element_text(size=22))+
-  facet_grid(rows = vars())
-transition_reveal(Date)
